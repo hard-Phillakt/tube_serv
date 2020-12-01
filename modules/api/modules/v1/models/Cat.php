@@ -10,7 +10,6 @@ namespace app\modules\api\modules\v1\models;
 
 use yii\db\ActiveRecord;
 
-
 class Cat extends ActiveRecord
 {
     public static function tableName()
@@ -23,10 +22,11 @@ class Cat extends ActiveRecord
         return [
             'id',
             'title',
+            'slug',
             'description',
             'alt',
             'img',
-            'parent_id'
+//            'parent_id'
         ];
     }
 
@@ -54,6 +54,15 @@ class Cat extends ActiveRecord
     {
         return $this->hasMany(Genre::class, ['id' => 'genre_id'])
             ->viaTable('cat_to_genre', ['cat_id' => 'id']);
+    }
+
+    public function rules()
+    {
+        return [
+            [['title', 'description', 'alt', 'img'], 'required'],
+            [['parent_id'], 'integer'],
+            [['title', 'slug', 'description', 'alt', 'img'], 'string', 'max' => 255],
+        ];
     }
 
 

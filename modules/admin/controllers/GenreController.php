@@ -15,8 +15,7 @@ use yii\filters\AccessControl;
  */
 class GenreController extends Controller
 {
-    public $layout = '_main';
-
+    public $layout = "_main";
     /**
      * {@inheritdoc}
      */
@@ -41,6 +40,7 @@ class GenreController extends Controller
             ],
         ];
     }
+
     /**
      * Lists all Genre models.
      * @return mixed

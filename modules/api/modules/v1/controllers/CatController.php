@@ -34,7 +34,7 @@ class CatController extends ActiveController
                 'Access-Control-Request-Headers' => ['*'],
                 'Access-Control-Allow-Headers' => ['Content-Type'],
                 // Allow credentials (cookies, authorization headers, etc.) to be exposed to the browser
-                'Access-Control-Allow-Credentials' => true,
+                'Access-Control-Allow-Credentials' => false,
                 // Allow OPTIONS caching
                 'Access-Control-Max-Age' => 3600,
                 // Allow the X-Pagination-Current-Page header to be exposed to the browser.

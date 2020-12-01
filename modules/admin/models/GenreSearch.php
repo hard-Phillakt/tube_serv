@@ -18,7 +18,7 @@ class GenreSearch extends Genre
     {
         return [
             [['id', 'parent_id'], 'integer'],
-            [['title', 'description', 'alt', 'img'], 'safe'],
+            [['title', 'slug', 'description', 'alt', 'img'], 'safe'],
         ];
     }
 
@@ -63,6 +63,7 @@ class GenreSearch extends Genre
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title])
+            ->andFilterWhere(['like', 'slug', $this->slug])
             ->andFilterWhere(['like', 'description', $this->description])
             ->andFilterWhere(['like', 'alt', $this->alt])
             ->andFilterWhere(['like', 'img', $this->img]);

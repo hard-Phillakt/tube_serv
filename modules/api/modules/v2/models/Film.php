@@ -37,6 +37,16 @@ class Film extends ActiveRecord
         ];
     }
 
+    public function rules()
+    {
+        return [
+            [['title', 'name', 'slug', 'description', 'keywords', 'sourceVideo', 'proxyServerUrlVideo', 'posterImg', 'date', 'publishDate'], 'required'],
+            [['content', 'sourceVideo', 'proxyServerUrlVideo', 'posterImg'], 'string'],
+            [['parent_id'], 'integer'],
+            [['title', 'name', 'slug', 'description', 'keywords', 'date', 'publishDate'], 'string', 'max' => 255],
+        ];
+    }
+
 
     public function getCat(){
        return $this->hasOne(Cat::class, ['id' => 'parent_id']);

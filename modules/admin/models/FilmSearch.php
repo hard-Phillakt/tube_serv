@@ -18,7 +18,7 @@ class FilmSearch extends Film
     {
         return [
             [['id', 'publishDate', 'parent_id'], 'integer'],
-            [['title', 'name', 'description', 'content', 'keywords', 'sourceVideo', 'proxyServerUrlVideo', 'posterImg', 'date'], 'safe'],
+            [['title', 'name', 'slug', 'description', 'content', 'keywords', 'sourceVideo', 'proxyServerUrlVideo', 'posterImg', 'date'], 'safe'],
         ];
     }
 
@@ -66,6 +66,7 @@ class FilmSearch extends Film
 
         $query->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'slug', $this->slug])
             ->andFilterWhere(['like', 'description', $this->description])
             ->andFilterWhere(['like', 'content', $this->content])
             ->andFilterWhere(['like', 'keywords', $this->keywords])

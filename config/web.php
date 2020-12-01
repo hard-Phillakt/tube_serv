@@ -11,6 +11,21 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm' => '@vendor/npm-asset',
     ],
+    'controllerMap' => [
+        'elfinder' => [
+            'class' => 'mihaildev\elfinder\Controller',
+            'access' => ['@'], //глобальный доступ к фаил менеджеру @ - для авторизорованных , ? - для гостей , чтоб открыть всем ['@', '?']
+            'disabledCommands' => ['netmount'], //отключение ненужных команд https://github.com/Studio-42/elFinder/wiki/Client-configuration-options#commands
+            'roots' => [
+                [
+                    'baseUrl'=>'@web',
+                    'basePath'=>'@webroot',
+                    'path' => 'files/global',
+                    'name' => 'global'
+                ]
+            ]
+        ]
+    ],
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -57,16 +72,17 @@ $config = [
                 [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => 'api/v1/film',
-                    'except' => ['delete', 'create', 'update'],
+//                    'except' => ['delete', 'create', 'update'],
                 ],
                 [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => 'api/v1/cat',
-                    'except' => ['delete', 'create', 'update'],
+//                    'except' => ['delete', 'create', 'update'],
                 ],
 //                [
 //                    'class' => 'yii\rest\UrlRule',
-//                    'controller' => 'api/v2/film'
+//                    'controller' => 'api/v2/film',
+//                    'except' => ['delete', 'create', 'update'],
 //                ],
 //                [
 //                    'class' => 'yii\rest\UrlRule',
@@ -85,7 +101,6 @@ $config = [
 //                    'controller' => 'gall'
 //                ],
             ],
-
         ],
     ],
     'modules' => [

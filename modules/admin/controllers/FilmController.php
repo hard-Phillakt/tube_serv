@@ -15,8 +15,7 @@ use yii\filters\AccessControl;
  */
 class FilmController extends Controller
 {
-    public $layout = '_main';
-
+    public $layout = "_main";
     /**
      * {@inheritdoc}
      */
@@ -41,7 +40,6 @@ class FilmController extends Controller
             ],
         ];
     }
-
     /**
      * Lists all Film models.
      * @return mixed

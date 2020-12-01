@@ -15,8 +15,7 @@ use yii\filters\AccessControl;
  */
 class CatController extends Controller
 {
-    public $layout = '_main';
-
+    public $layout = "_main";
     /**
      * {@inheritdoc}
      */

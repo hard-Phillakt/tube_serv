@@ -1,20 +1,55 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: mds
- * Date: 18.10.2020
- * Time: 14:11
- */
 
 namespace app\modules\api\modules\v1\models;
 
-use yii\db\ActiveRecord;
-use app\modules\api\modules\v1\models\Film;
+use Yii;
 
-class Genre extends ActiveRecord
+/**
+ * This is the model class for table "genre".
+ *
+ * @property int $id
+ * @property string $title
+ * @property string $slug
+ * @property string $description
+ * @property string $alt
+ * @property string $img
+ * @property int $parent_id
+ */
+class Genre extends \yii\db\ActiveRecord
 {
-    public static function tableName(){
+    /**
+     * {@inheritdoc}
+     */
+    public static function tableName()
+    {
         return 'genre';
     }
 
+    /**
+     * {@inheritdoc}
+     */
+    public function rules()
+    {
+        return [
+            [['title', 'slug', 'description', 'alt', 'img', 'parent_id'], 'required'],
+            [['parent_id'], 'integer'],
+            [['title', 'slug', 'description', 'alt', 'img'], 'string', 'max' => 255],
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'title' => 'Title',
+            'slug' => 'Slug',
+            'description' => 'Description',
+            'alt' => 'Alt',
+            'img' => 'Img',
+            'parent_id' => 'Parent ID',
+        ];
+    }
 }

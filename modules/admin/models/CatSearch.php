@@ -17,8 +17,8 @@ class CatSearch extends Cat
     public function rules()
     {
         return [
-            [['id', 'parent_id'], 'integer'],
-            [['title', 'description', 'alt', 'img'], 'safe'],
+            [['id'], 'integer'],
+            [['title', 'slug', 'description', 'alt', 'img'], 'safe'],
         ];
     }
 
@@ -59,10 +59,10 @@ class CatSearch extends Cat
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'parent_id' => $this->parent_id,
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title])
+            ->andFilterWhere(['like', 'slug', $this->slug])
             ->andFilterWhere(['like', 'description', $this->description])
             ->andFilterWhere(['like', 'alt', $this->alt])
             ->andFilterWhere(['like', 'img', $this->img]);
