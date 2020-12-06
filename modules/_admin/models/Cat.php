@@ -55,7 +55,7 @@ class Cat extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'slug', 'description', 'alt', 'img'], 'required'],
+            [['title', 'description', 'alt', 'img'], 'required'],
             [['title', 'slug', 'description', 'alt', 'img'], 'string', 'max' => 255],
         ];
     }

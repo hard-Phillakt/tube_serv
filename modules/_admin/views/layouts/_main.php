@@ -31,13 +31,15 @@ AppAsset::register($this);
 <!--
 
 *** ФИЛЬМЫ ***
-^films T M // Фильмы
-^films_genres T M // Жанры фильмов
-^films_to_genres T M // Связь жанры к фильмам
-^films_gallery T M // Галереи к Фильмам
-^films_img T M // Картинки к фильмам
-^films_gallery_to_films_img T M // Связь галереи к картинкам
-^films_to_films_gallery T M // Связь Фильмов с галереями
+^films // Фильмы
+^films_genres // Жанры фильмов
+^films_to_genres // Связь жанры к фильмам
+
+^films_gallery // Фильмы к галереям
+^films_img // Картинки к фильмам
+^films_gallery_to_films_img // Связь галереи к картинкам
+
+^films_to_films_gallery // Связь фильмов к галереи
 
 
 
@@ -73,25 +75,16 @@ anime_gallery_to_anime_img // Галереи сериалы  к картинка
                 'label' => 'Раздел: Фильмы',
                 'items' => [
                     '<li class="dropdown-header">Список фильмов</li>',
-                    ['label' => 'Фильмы', 'url' => '/admin/films/'],
+                    ['label' => 'Фильмы', 'url' => '/admin/film/'],
                     '<li class="divider"></li>',
-                    '<li class="dropdown-header">Жанры к фильмам</li>',
-                    ['label' => 'Жанры к фильмам', 'url' => '/admin/films-genres/'],
+                    '<li class="dropdown-header">Список жанров к фильмам</li>',
+                    ['label' => 'Жанры', 'url' => '/admin/film/'],
                     '<li class="divider"></li>',
-                    '<li class="dropdown-header">Галереи к Фильмам</li>',
-                    ['label' => 'Галереи к Фильмам', 'url' => '/admin/films-gallery/'],
+                    '<li class="dropdown-header">Список категории к жанрам</li>',
+                    ['label' => 'Категории', 'url' => '/admin/film/'],
                     '<li class="divider"></li>',
-                    '<li class="dropdown-header">Картинки к фильмам</li>',
-                    ['label' => 'Картинки к фильмам', 'url' => '/admin/films-img/'],
-                    '<li class="divider"></li>',
-                    '<li class="dropdown-header">Связь галереи с картинками</li>',
-                    ['label' => 'Связь галереи с картинками', 'url' => '/admin/films-gallery-to-films-img/'],
-                    '<li class="divider"></li>',
-                    '<li class="dropdown-header">Связь Фильмов с галереями</li>',
-                    ['label' => 'Связь Фильмов с галереями', 'url' => '/admin/films-to-films-gallery/'],
-                    '<li class="divider"></li>',
-                    '<li class="dropdown-header">Связь жанры с фильмами</li>',
-                    ['label' => 'Связь жанры с фильмами', 'url' => '/admin/films-to-genres/'],
+                    '<li class="dropdown-header">Список картинок к фильмам</li>',
+                    ['label' => 'Галерея', 'url' => '/admin/film/'],
                 ],
             ],
             [

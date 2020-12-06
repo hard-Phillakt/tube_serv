@@ -35,7 +35,7 @@ class BaseController extends Controller
 
     public function actionIndex()
     {
-        return $this->redirect('/admin/film');
+        return $this->redirect('/admin/films');
     }
 
     public function actionOut()
