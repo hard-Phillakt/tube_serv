@@ -19,7 +19,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'title') ?>
 
-    <?= $form->field($model, 'name') ?>
+    <?= $form->field($model, 'original_title') ?>
 
     <?= $form->field($model, 'slug') ?>
 
@@ -29,15 +29,27 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'keywords') ?>
 
-    <?php // echo $form->field($model, 'sourceVideo') ?>
+    <?php // echo $form->field($model, 'original_url_video') ?>
 
-    <?php // echo $form->field($model, 'proxyServerUrlVideo') ?>
+    <?php // echo $form->field($model, 'proxy_url_video') ?>
 
-    <?php // echo $form->field($model, 'posterImg') ?>
+    <?php // echo $form->field($model, 'poster_img') ?>
 
-    <?php // echo $form->field($model, 'date') ?>
+    <?php // echo $form->field($model, 'year') ?>
 
-    <?php // echo $form->field($model, 'publishDate') ?>
+    <?php // echo $form->field($model, 'publish_date') ?>
+
+    <?php // echo $form->field($model, 'tagline') ?>
+
+    <?php // echo $form->field($model, 'producer') ?>
+
+    <?php // echo $form->field($model, 'views') ?>
+
+    <?php // echo $form->field($model, 'world_premiere') ?>
+
+    <?php // echo $form->field($model, 'release_date_in_russia') ?>
+
+    <?php // echo $form->field($model, 'duration') ?>
 
     <?php // echo $form->field($model, 'parent_id') ?>
 

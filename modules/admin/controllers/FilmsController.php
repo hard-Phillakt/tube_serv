@@ -8,14 +8,15 @@ use app\modules\admin\models\FilmsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
 
 /**
  * FilmsController implements the CRUD actions for Films model.
  */
 class FilmsController extends Controller
 {
+
     public $layout = "_main";
+
     /**
      * {@inheritdoc}
      */
@@ -26,16 +27,6 @@ class FilmsController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
-                ],
-            ],
-            'access' => [
-                'class' => AccessControl::className(),
-                'rules' => [
-                    [
-                        'allow' => true,
-                        'actions' => [],
-                        'roles' => ['@'],
-                    ],
                 ],
             ],
         ];

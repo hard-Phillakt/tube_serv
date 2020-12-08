@@ -6,6 +6,10 @@
  * Time: 0:25
  */
 
+// ad
+// 123
+// $2y$13$fNnuWQDsg3Ryb4DDfsmJzey4mKxtzlcTuLdj5fPCvxiqiwqOQiHgS
+
 namespace app\controllers;
 
 use Yii;

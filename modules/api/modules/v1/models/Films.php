@@ -40,11 +40,11 @@ class Films extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'name', 'slug', 'description', 'content', 'keywords', 'sourceVideo', 'proxyServerUrlVideo', 'posterImg', 'date', 'publishDate', 'parent_id'], 'required'],
-            [['content', 'sourceVideo', 'proxyServerUrlVideo', 'posterImg'], 'string'],
-            [['date'], 'safe'],
-            [['publishDate', 'parent_id'], 'integer'],
-            [['title', 'name', 'slug', 'description', 'keywords'], 'string', 'max' => 255],
+            [['title', 'original_title', 'slug', 'description', 'content', 'keywords', 'original_url_video', 'proxy_url_video', 'poster_img', 'year', 'publish_date', 'tagline', 'producer', 'views', 'world_premiere', 'release_date_in_russia', 'duration', 'parent_id'], 'required'],
+            [['content', 'original_url_video', 'proxy_url_video', 'poster_img'], 'string'],
+            [['year'], 'safe'],
+            [['publish_date', 'views', 'parent_id'], 'integer'],
+            [['title', 'original_title', 'slug', 'description', 'keywords', 'tagline', 'producer', 'world_premiere', 'release_date_in_russia', 'duration'], 'string', 'max' => 255],
         ];
     }
 
@@ -55,17 +55,23 @@ class Films extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'name' => 'Name',
+            'title' => 'Название',
+            'original_title' => 'Оригинальное название',
+            'tagline' => 'Слоган',
+            'producer' => 'Режиссер',
             'slug' => 'Slug',
-            'description' => 'Description',
-            'content' => 'Content',
-            'keywords' => 'Keywords',
-            'sourceVideo' => 'Source Video',
-            'proxyServerUrlVideo' => 'Proxy Server Url Video',
-            'posterImg' => 'Poster Img',
-            'date' => 'Date',
-            'publishDate' => 'Publish Date',
+            'description' => 'Краткое описание',
+            'content' => 'Основное описание',
+            'keywords' => 'Ключевые слова',
+            'original_url_video' => 'Фактическое расположение файла URL видео',
+            'proxy_url_video' => 'Прокси сервер URL видео',
+            'poster_img' => 'Постер фильма',
+            'year' => 'Год выхода фильма',
+            'publish_date' => 'Дата загрузки видео на сервер',
+            'views' => 'Просмотры',
+            'world_premiere' => 'Премьера в мире',
+            'release_date_in_russia' => 'Дата выхода в России',
+            'duration' => 'Продолжительность',
             'parent_id' => 'Parent ID',
         ];
     }

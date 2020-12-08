@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Дек 06 2020 г., 16:55
--- Версия сервера: 5.6.41
--- Версия PHP: 7.0.32
+-- Время создания: Дек 08 2020 г., 23:50
+-- Версия сервера: 10.3.22-MariaDB
+-- Версия PHP: 7.1.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -31,16 +30,22 @@ SET time_zone = "+00:00";
 CREATE TABLE `films` (
   `id` int(11) NOT NULL,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `original_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `content` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `keywords` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `sourceVideo` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `proxyServerUrlVideo` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `posterImg` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `date` date NOT NULL,
-  `publishDate` int(11) NOT NULL,
+  `original_url_video` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `proxy_url_video` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `poster_img` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `year` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `publish_date` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tagline` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `producer` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `views` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `world_premiere` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `release_date_in_russia` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `duration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `parent_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -48,9 +53,10 @@ CREATE TABLE `films` (
 -- Дамп данных таблицы `films`
 --
 
-INSERT INTO `films` (`id`, `title`, `name`, `slug`, `description`, `content`, `keywords`, `sourceVideo`, `proxyServerUrlVideo`, `posterImg`, `date`, `publishDate`, `parent_id`) VALUES
-(1, 'Заголовок 1', 'Название 2', 'zagolovok-1', '<p>Описание 3</p>', 'Ключевые слова, комедии, ужасы', 'Ключевые слова, комедии, ужасы', 'http://proxy-middleware.com/video/one.mp4', 'https://hard-phillakt.github.io/video/one.mp4', 'https://example.com/category/big_tits/alina_purple/preview_img/preview.webp', '2020-10-15', 1434449005, 1),
-(2, 'Заголовок 3', 'Заголовок 3', 'zagolovok-3', '<p>Описание 3</p>\r\n', '<p>Описание 3</p>\r\n', 'Ключевые слова, комедии, ужасы', 'http://proxy-middleware.com/video/one.mp4', 'https://example.com/category/big_tits/alina_purple/preview_img/preview.webp', 'https://example.com/category/big_tits/alina_purple/preview_img/preview.webp', '0000-00-00', 20202020, 2);
+INSERT INTO `films` (`id`, `title`, `original_title`, `slug`, `description`, `content`, `keywords`, `original_url_video`, `proxy_url_video`, `poster_img`, `year`, `publish_date`, `tagline`, `producer`, `views`, `world_premiere`, `release_date_in_russia`, `duration`, `parent_id`) VALUES
+(3, 'Варкрафт', 'Warcraft', 'warcraft', '<p>Description cannot be blank.</p>', '<p>Content</p>\r\n', '<p>Keywords</p>', 'Original Url Video', 'Original Url Video', 'Original Url Video', '07-Дек-2020', '08-Дек-2020', '<p>Original Url Video</p>', 'Producer', '1', '30-Ноя-2020', '05-Дек-2020', '123 мин. / 02:03', 1),
+(4, 'Title', 'Title', 'Title', '<p>Title</p>\r\n', '<p>Title</p>\r\n', '<p>Title</p>\r\n', 'Title', 'Title', 'Title', 'Title', '08122020', '<p>Original Url Video</p>\r\n', 'Варкрафт 2', '', '31-Дек-2020', '11-Дек-2020', '123 мин. / 02:03', 1),
+(5, 'Варкрафт3', 'Варкрафт3', 'Варкрафт3', '<p>Варкрафт3</p>\r\n', '<p>Варкрафт3</p>\r\n', '<p>Варкрафт3</p>\r\n', 'Варкрафт3', 'Варкрафт3', 'Варкрафт3', '24-Май-2016', '08-Дек-2020', '<p>Варкрафт3</p>\r\n', 'Варкрафт3', '', '08-Дек-2020', '03-Янв-2021', 'Варкрафт3', 0);
 
 -- --------------------------------------------------------
 
@@ -156,6 +162,13 @@ CREATE TABLE `films_to_films_gallery` (
   `films_gallery_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Дамп данных таблицы `films_to_films_gallery`
+--
+
+INSERT INTO `films_to_films_gallery` (`id`, `films_id`, `films_gallery_id`) VALUES
+(1, 3, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -167,6 +180,14 @@ CREATE TABLE `films_to_genres` (
   `films_id` int(11) NOT NULL,
   `genres_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `films_to_genres`
+--
+
+INSERT INTO `films_to_genres` (`id`, `films_id`, `genres_id`) VALUES
+(1, 3, 1),
+(2, 3, 2);
 
 -- --------------------------------------------------------
 
@@ -428,7 +449,7 @@ ALTER TABLE `_image_gallery`
 -- AUTO_INCREMENT для таблицы `films`
 --
 ALTER TABLE `films`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT для таблицы `films_gallery`
@@ -458,13 +479,13 @@ ALTER TABLE `films_img`
 -- AUTO_INCREMENT для таблицы `films_to_films_gallery`
 --
 ALTER TABLE `films_to_films_gallery`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблицы `films_to_genres`
 --
 ALTER TABLE `films_to_genres`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `user`

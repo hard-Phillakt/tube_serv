@@ -48,7 +48,6 @@ serials_to_serials_gallery // Сериалы к галереям
 serials_gallery_to_serials_img // Галереи сериалы  к картинкам
 
 
-
 *** АНИМЕ ***
 anime // Аниме
 anime_to_genre // Жанры к Аниме
@@ -88,8 +87,8 @@ anime_gallery_to_anime_img // Галереи сериалы  к картинка
                     '<li class="dropdown-header">Связь галереи с картинками</li>',
                     ['label' => 'Связь галереи с картинками', 'url' => '/admin/films-gallery-to-films-img/'],
                     '<li class="divider"></li>',
-                    '<li class="dropdown-header">Связь Фильмов с галереями</li>',
-                    ['label' => 'Связь Фильмов с галереями', 'url' => '/admin/films-to-films-gallery/'],
+                    '<li class="dropdown-header">Связь фильмы с галереями</li>',
+                    ['label' => 'Связь фильмы с галереями', 'url' => '/admin/films-to-films-gallery/'],
                     '<li class="divider"></li>',
                     '<li class="dropdown-header">Связь жанры с фильмами</li>',
                     ['label' => 'Связь жанры с фильмами', 'url' => '/admin/films-to-genres/'],
@@ -128,37 +127,3 @@ anime_gallery_to_anime_img // Галереи сериалы  к картинка
 </html>
 <?php $this->endPage() ?>
 
-
-<!--echo Nav::widget([-->
-<!--'options' => ['class' => 'navbar-nav navbar-right'],-->
-<!--'items' => [-->
-<!--[-->
-<!--'label' => 'Фильмы',-->
-<!--'items' => [-->
-<!--['label' => 'Фильмы', 'url' => '/admin/film/'],-->
-<!--['label' => 'Жанры', 'url' => '/admin/film/'],-->
-<!--['label' => 'Категории', 'url' => '/admin/film/'],-->
-<!--['label' => 'Галерея', 'url' => '/admin/film/'],-->
-<!--'<li class="divider"></li>',-->
-<!--'<li class="dropdown-header">Dropdown Header</li>',-->
-<!--['label' => 'Level 1 - Dropdown B', 'url' => '#'],-->
-<!--],-->
-<!--],-->
-<!--['label' => 'Категории', 'url' => '/admin/cat/'],-->
-<!--['label' => 'Жанры', 'url' => '/admin/genre/'],-->
-<!--['label' => 'Категории к жанрам', 'url' => '/admin/cat-to-genre/'],-->
-<!--['label' => 'Галерея', 'url' => '/admin/image-gallery/'],-->
-<!--Yii::$app->user->isGuest ? (-->
-<!--['label' => 'Login', 'url' => ['/site/login']]-->
-<!--) : (-->
-<!--'<li>'-->
-<!--    . Html::beginForm(['/site/logout'], 'post')-->
-<!--    . Html::submitButton(-->
-<!--    'Logout (' . Yii::$app->user->identity->name . ')',-->
-<!--    ['class' => 'btn btn-link logout']-->
-<!--    )-->
-<!--    . Html::endForm()-->
-<!--    . '</li>'-->
-<!--)-->
-<!--],-->
-<!--]);-->

@@ -9,16 +9,22 @@ use Yii;
  *
  * @property int $id
  * @property string $title
- * @property string $name
+ * @property string $original_title
  * @property string $slug
  * @property string $description
  * @property string $content
  * @property string $keywords
- * @property string $sourceVideo
- * @property string $proxyServerUrlVideo
- * @property string $posterImg
- * @property string $date
- * @property int $publishDate
+ * @property string $original_url_video
+ * @property string $proxy_url_video
+ * @property string $poster_img
+ * @property string $year
+ * @property string $publish_date
+ * @property string $tagline
+ * @property string $producer
+ * @property string $views
+ * @property string $world_premiere
+ * @property string $release_date_in_russia
+ * @property string $duration
  * @property int $parent_id
  */
 class Films extends \yii\db\ActiveRecord
@@ -37,11 +43,11 @@ class Films extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'name', 'slug', 'description', 'content', 'keywords', 'sourceVideo', 'proxyServerUrlVideo', 'posterImg', 'date', 'publishDate', 'parent_id'], 'required'],
-            [['content', 'sourceVideo', 'proxyServerUrlVideo', 'posterImg'], 'string'],
-            [['date'], 'safe'],
-            [['publishDate', 'parent_id'], 'integer'],
-            [['title', 'name', 'slug', 'description', 'keywords'], 'string', 'max' => 255],
+            [['title', 'original_title', 'slug', 'description', 'content', 'keywords', 'original_url_video', 'proxy_url_video', 'poster_img', 'year', 'publish_date', 'tagline', 'producer', 'world_premiere', 'release_date_in_russia', 'duration', 'parent_id'], 'required'],
+            [['content', 'original_url_video', 'proxy_url_video', 'poster_img', 'views'], 'string'],
+            [['parent_id'], 'integer'],
+            [['title', 'original_title', 'slug', 'description', 'keywords', 'tagline', 'producer', 'world_premiere', 'release_date_in_russia', 'duration'], 'string', 'max' => 255],
+            [['year', 'publish_date'], 'string', 'max' => 30],
         ];
     }
 
@@ -53,16 +59,22 @@ class Films extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'title' => 'Title',
-            'name' => 'Name',
+            'original_title' => 'Original Title',
             'slug' => 'Slug',
             'description' => 'Description',
             'content' => 'Content',
             'keywords' => 'Keywords',
-            'sourceVideo' => 'Source Video',
-            'proxyServerUrlVideo' => 'Proxy Server Url Video',
-            'posterImg' => 'Poster Img',
-            'date' => 'Date',
-            'publishDate' => 'Publish Date',
+            'original_url_video' => 'Original Url Video',
+            'proxy_url_video' => 'Proxy Url Video',
+            'poster_img' => 'Poster Img',
+            'year' => 'Year',
+            'publish_date' => 'Publish Date',
+            'tagline' => 'Tagline',
+            'producer' => 'Producer',
+            'views' => 'Views',
+            'world_premiere' => 'World Premiere',
+            'release_date_in_russia' => 'Release Date In Russia',
+            'duration' => 'Duration',
             'parent_id' => 'Parent ID',
         ];
     }

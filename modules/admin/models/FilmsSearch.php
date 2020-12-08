@@ -17,8 +17,8 @@ class FilmsSearch extends Films
     public function rules()
     {
         return [
-            [['id', 'publishDate', 'parent_id'], 'integer'],
-            [['title', 'name', 'slug', 'description', 'content', 'keywords', 'sourceVideo', 'proxyServerUrlVideo', 'posterImg', 'date'], 'safe'],
+            [['id', 'parent_id'], 'integer'],
+            [['title', 'original_title', 'slug', 'description', 'content', 'keywords', 'original_url_video', 'proxy_url_video', 'poster_img', 'year', 'publish_date', 'tagline', 'producer', 'views', 'world_premiere', 'release_date_in_russia', 'duration'], 'safe'],
         ];
     }
 
@@ -59,20 +59,26 @@ class FilmsSearch extends Films
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'date' => $this->date,
-            'publishDate' => $this->publishDate,
             'parent_id' => $this->parent_id,
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'original_title', $this->original_title])
             ->andFilterWhere(['like', 'slug', $this->slug])
             ->andFilterWhere(['like', 'description', $this->description])
             ->andFilterWhere(['like', 'content', $this->content])
             ->andFilterWhere(['like', 'keywords', $this->keywords])
-            ->andFilterWhere(['like', 'sourceVideo', $this->sourceVideo])
-            ->andFilterWhere(['like', 'proxyServerUrlVideo', $this->proxyServerUrlVideo])
-            ->andFilterWhere(['like', 'posterImg', $this->posterImg]);
+            ->andFilterWhere(['like', 'original_url_video', $this->original_url_video])
+            ->andFilterWhere(['like', 'proxy_url_video', $this->proxy_url_video])
+            ->andFilterWhere(['like', 'poster_img', $this->poster_img])
+            ->andFilterWhere(['like', 'year', $this->year])
+            ->andFilterWhere(['like', 'publish_date', $this->publish_date])
+            ->andFilterWhere(['like', 'tagline', $this->tagline])
+            ->andFilterWhere(['like', 'producer', $this->producer])
+            ->andFilterWhere(['like', 'views', $this->views])
+            ->andFilterWhere(['like', 'world_premiere', $this->world_premiere])
+            ->andFilterWhere(['like', 'release_date_in_russia', $this->release_date_in_russia])
+            ->andFilterWhere(['like', 'duration', $this->duration]);
 
         return $dataProvider;
     }
