@@ -71,12 +71,17 @@ $config = [
             'rules' => [
                 [
                     'class' => 'yii\rest\UrlRule',
-                    'controller' => 'api/v1/film',
+                    'controller' => 'api/v1/films',
 //                    'except' => ['delete', 'create', 'update'],
                 ],
                 [
                     'class' => 'yii\rest\UrlRule',
-                    'controller' => 'api/v1/cat',
+                    'controller' => 'api/v1/films-gallery',
+//                    'except' => ['delete', 'create', 'update'],
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => 'api/v1/films-genres',
 //                    'except' => ['delete', 'create', 'update'],
                 ],
 //                [

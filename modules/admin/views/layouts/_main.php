@@ -48,6 +48,7 @@ serials_to_serials_gallery // Сериалы к галереям
 serials_gallery_to_serials_img // Галереи сериалы  к картинкам
 
 
+
 *** АНИМЕ ***
 anime // Аниме
 anime_to_genre // Жанры к Аниме
@@ -75,14 +76,14 @@ anime_gallery_to_anime_img // Галереи сериалы  к картинка
                     '<li class="dropdown-header">Список фильмов</li>',
                     ['label' => 'Фильмы', 'url' => '/admin/films/'],
                     '<li class="divider"></li>',
-                    '<li class="dropdown-header">Жанры к фильмам</li>',
-                    ['label' => 'Жанры к фильмам', 'url' => '/admin/films-genres/'],
+                    '<li class="dropdown-header">Жанры</li>',
+                    ['label' => 'Жанры', 'url' => '/admin/films-genres/'],
                     '<li class="divider"></li>',
-                    '<li class="dropdown-header">Галереи к Фильмам</li>',
-                    ['label' => 'Галереи к Фильмам', 'url' => '/admin/films-gallery/'],
+                    '<li class="dropdown-header">Галереи</li>',
+                    ['label' => 'Галереи', 'url' => '/admin/films-gallery/'],
                     '<li class="divider"></li>',
-                    '<li class="dropdown-header">Картинки к фильмам</li>',
-                    ['label' => 'Картинки к фильмам', 'url' => '/admin/films-img/'],
+                    '<li class="dropdown-header">Картинки</li>',
+                    ['label' => 'Картинки', 'url' => '/admin/films-img/'],
                     '<li class="divider"></li>',
                     '<li class="dropdown-header">Связь галереи с картинками</li>',
                     ['label' => 'Связь галереи с картинками', 'url' => '/admin/films-gallery-to-films-img/'],
@@ -92,38 +93,6 @@ anime_gallery_to_anime_img // Галереи сериалы  к картинка
                     '<li class="divider"></li>',
                     '<li class="dropdown-header">Связь жанры с фильмами</li>',
                     ['label' => 'Связь жанры с фильмами', 'url' => '/admin/films-to-genres/'],
-                ],
-            ],
-            [
-                'label' => 'Раздел: Сериалы',
-                'items' => [
-                    '<li class="dropdown-header">Список сериалы</li>',
-                    ['label' => 'Сериалы', 'url' => '/admin/film/'],
-                    '<li class="divider"></li>',
-                    '<li class="dropdown-header">Список жанров к сериалы</li>',
-                    ['label' => 'Жанры', 'url' => '/admin/film/'],
-                    '<li class="divider"></li>',
-                    '<li class="dropdown-header">Список категории к жанрам</li>',
-                    ['label' => 'Категории', 'url' => '/admin/film/'],
-                    '<li class="divider"></li>',
-                    '<li class="dropdown-header">Список картинок к сериалам</li>',
-                    ['label' => 'Галерея', 'url' => '/admin/film/'],
-                ],
-            ],
-            [
-                'label' => 'Раздел: Аниме',
-                'items' => [
-                    '<li class="dropdown-header">Список сериалы</li>',
-                    ['label' => 'Аниме', 'url' => '/admin/film/'],
-                    '<li class="divider"></li>',
-                    '<li class="dropdown-header">Список жанров к сериалы</li>',
-                    ['label' => 'Жанры', 'url' => '/admin/film/'],
-                    '<li class="divider"></li>',
-                    '<li class="dropdown-header">Список категории к жанрам</li>',
-                    ['label' => 'Категории', 'url' => '/admin/film/'],
-                    '<li class="divider"></li>',
-                    '<li class="dropdown-header">Список картинок к сериалам</li>',
-                    ['label' => 'Галерея', 'url' => '/admin/film/'],
                 ],
             ],
 
