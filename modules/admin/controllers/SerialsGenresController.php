@@ -3,19 +3,20 @@
 namespace app\modules\admin\controllers;
 
 use Yii;
-use app\modules\admin\models\FilmsGenres;
-use app\modules\admin\models\FilmsGenresSearch;
-use yii\filters\AccessControl;
+use app\modules\admin\models\SerialsGenres;
+use app\modules\admin\models\SerialsGenresSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * FilmsGenresController implements the CRUD actions for FilmsGenres model.
+ * SerialsGenresController implements the CRUD actions for SerialsGenres model.
  */
-    class FilmsGenresController extends Controller
+class SerialsGenresController extends Controller
 {
+
     public $layout = "_main";
+
     /**
      * {@inheritdoc}
      */
@@ -28,26 +29,16 @@ use yii\filters\VerbFilter;
                     'delete' => ['POST'],
                 ],
             ],
-            'access' => [
-                'class' => AccessControl::className(),
-                'rules' => [
-                    [
-                        'allow' => true,
-                        'actions' => [],
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
         ];
     }
 
     /**
-     * Lists all FilmsGenres models.
+     * Lists all SerialsGenres models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new FilmsGenresSearch();
+        $searchModel = new SerialsGenresSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -57,7 +48,7 @@ use yii\filters\VerbFilter;
     }
 
     /**
-     * Displays a single FilmsGenres model.
+     * Displays a single SerialsGenres model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -70,13 +61,13 @@ use yii\filters\VerbFilter;
     }
 
     /**
-     * Creates a new FilmsGenres model.
+     * Creates a new SerialsGenres model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new FilmsGenres();
+        $model = new SerialsGenres();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -88,7 +79,7 @@ use yii\filters\VerbFilter;
     }
 
     /**
-     * Updates an existing FilmsGenres model.
+     * Updates an existing SerialsGenres model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -108,7 +99,7 @@ use yii\filters\VerbFilter;
     }
 
     /**
-     * Deletes an existing FilmsGenres model.
+     * Deletes an existing SerialsGenres model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -122,15 +113,15 @@ use yii\filters\VerbFilter;
     }
 
     /**
-     * Finds the FilmsGenres model based on its primary key value.
+     * Finds the SerialsGenres model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return FilmsGenres the loaded model
+     * @return SerialsGenres the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = FilmsGenres::findOne($id)) !== null) {
+        if (($model = SerialsGenres::findOne($id)) !== null) {
             return $model;
         }
 

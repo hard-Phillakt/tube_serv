@@ -12,6 +12,7 @@ use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
 AppAsset::register($this);
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -94,7 +95,56 @@ anime_gallery_to_anime_img // Галереи сериалы  к картинка
                     ['label' => 'Связь жанры с фильмами', 'url' => '/admin/films-to-genres/'],
                 ],
             ],
-
+            [
+                'label' => 'Раздел: сериалы',
+                'items' => [
+                    '<li class="dropdown-header">Список сериалов</li>',
+                    ['label' => 'Сериалы', 'url' => '/admin/serials/'],
+                    '<li class="divider"></li>',
+                    '<li class="dropdown-header">Жанры</li>',
+                    ['label' => 'Жанры', 'url' => '/admin/serials-genres/'],
+                    '<li class="divider"></li>',
+                    '<li class="dropdown-header">Галереи</li>',
+                    ['label' => 'Галереи', 'url' => '/admin/serials-gallery/'],
+                    '<li class="divider"></li>',
+                    '<li class="dropdown-header">Картинки</li>',
+                    ['label' => 'Картинки', 'url' => '/admin/serials-img/'],
+                    '<li class="divider"></li>',
+                    '<li class="dropdown-header">Связь галереи с картинками</li>',
+                    ['label' => 'Связь галереи с картинками', 'url' => '/admin/serials-gallery-to-serials-img/'],
+                    '<li class="divider"></li>',
+                    '<li class="dropdown-header">Связь сериалы с галереями</li>',
+                    ['label' => 'Связь сериалы с галереями', 'url' => '/admin/serials-to-serials-gallery/'],
+                    '<li class="divider"></li>',
+                    '<li class="dropdown-header">Связь жанры с сериалами</li>',
+                    ['label' => 'Связь жанры с сериалами', 'url' => '/admin/serials-to-genres/'],
+                ],
+                ],
+            [
+                'label' => 'Раздел: аниме',
+                'items' => [
+                    '<li class="dropdown-header">Список аниме</li>',
+                    ['label' => 'Аниме', 'url' => '/admin/anime/'],
+                    '<li class="divider"></li>',
+                    '<li class="dropdown-header">Жанры</li>',
+                    ['label' => 'Жанры', 'url' => '/admin/anime-genres/'],
+                    '<li class="divider"></li>',
+                    '<li class="dropdown-header">Галереи</li>',
+                    ['label' => 'Галереи', 'url' => '/admin/anime-gallery/'],
+                    '<li class="divider"></li>',
+                    '<li class="dropdown-header">Картинки</li>',
+                    ['label' => 'Картинки', 'url' => '/admin/anime-img/'],
+                    '<li class="divider"></li>',
+                    '<li class="dropdown-header">Связь галереи с картинками</li>',
+                    ['label' => 'Связь галереи с картинками', 'url' => '/admin/anime-gallery-to-anime-img/'],
+                    '<li class="divider"></li>',
+                    '<li class="dropdown-header">Связь аниме с галереями</li>',
+                    ['label' => 'Связь аниме с галереями', 'url' => '/admin/anime-to-anime-gallery/'],
+                    '<li class="divider"></li>',
+                    '<li class="dropdown-header">Связь жанры с аниме</li>',
+                    ['label' => 'Связь жанры с аниме', 'url' => '/admin/anime-to-genres/'],
+                ],
+            ],
             Yii::$app->user->isGuest ? (
             ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
