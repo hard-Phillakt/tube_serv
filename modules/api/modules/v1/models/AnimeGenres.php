@@ -3,10 +3,9 @@
 namespace app\modules\api\modules\v1\models;
 
 use Yii;
-use app\modules\api\modules\v1\models\Films;
 
 /**
- * This is the model class for table "films_genres".
+ * This is the model class for table "anime_genres".
  *
  * @property int $id
  * @property string $title
@@ -16,14 +15,14 @@ use app\modules\api\modules\v1\models\Films;
  * @property string $img
  * @property int $parent_id
  */
-class FilmsGenres extends \yii\db\ActiveRecord
+class AnimeGenres extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'films_genres';
+        return 'anime_genres';
     }
 
     /**
@@ -54,18 +53,17 @@ class FilmsGenres extends \yii\db\ActiveRecord
         ];
     }
 
-
     public function extraFields()
     {
         return [
-            'films_to_genres',
+            'anime_to_genres',
         ];
     }
 
 
-    public function getFilms_to_genres()
+    public function getAnime_to_genres()
     {
-        return $this->hasMany(Films::class, ['id' => 'films_id'])
-            ->viaTable('films_to_genres', ['genres_id' => 'id']);
+        return $this->hasMany(Anime::class, ['id' => 'films_id'])
+            ->viaTable('anime_to_genres', ['genres_id' => 'id']);
     }
 }

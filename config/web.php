@@ -84,6 +84,36 @@ $config = [
                     'controller' => 'api/v1/films-genres',
 //                    'except' => ['delete', 'create', 'update'],
                 ],
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => 'api/v1/serials',
+//                    'except' => ['delete', 'create', 'update'],
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => 'api/v1/serials-gallery',
+//                    'except' => ['delete', 'create', 'update'],
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => 'api/v1/serials-genres',
+//                    'except' => ['delete', 'create', 'update'],
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => 'api/v1/anime',
+//                    'except' => ['delete', 'create', 'update'],
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => 'api/v1/anime-gallery',
+//                    'except' => ['delete', 'create', 'update'],
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => 'api/v1/anime-genres',
+//                    'except' => ['delete', 'create', 'update'],
+                ],
 //                [
 //                    'class' => 'yii\rest\UrlRule',
 //                    'controller' => 'api/v2/film',

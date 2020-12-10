@@ -3,27 +3,28 @@
 namespace app\modules\api\modules\v1\models;
 
 use Yii;
-use app\modules\api\modules\v1\models\Films;
+
+use app\modules\api\modules\v1\models\Anime;
+use app\modules\api\modules\v1\models\AnimeImg;
 
 /**
- * This is the model class for table "films_genres".
+ * This is the model class for table "anime_gallery".
  *
  * @property int $id
  * @property string $title
- * @property string $slug
  * @property string $description
  * @property string $alt
  * @property string $img
  * @property int $parent_id
  */
-class FilmsGenres extends \yii\db\ActiveRecord
+class AnimeGallery extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'films_genres';
+        return 'anime_gallery';
     }
 
     /**
@@ -32,9 +33,9 @@ class FilmsGenres extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'slug', 'description', 'alt', 'img', 'parent_id'], 'required'],
+            [['title', 'description', 'alt', 'img', 'parent_id'], 'required'],
             [['parent_id'], 'integer'],
-            [['title', 'slug', 'description', 'alt', 'img'], 'string', 'max' => 255],
+            [['title', 'description', 'alt', 'img'], 'string', 'max' => 255],
         ];
     }
 
@@ -46,7 +47,6 @@ class FilmsGenres extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'title' => 'Title',
-            'slug' => 'Slug',
             'description' => 'Description',
             'alt' => 'Alt',
             'img' => 'Img',
@@ -54,18 +54,22 @@ class FilmsGenres extends \yii\db\ActiveRecord
         ];
     }
 
-
     public function extraFields()
     {
         return [
-            'films_to_genres',
+            'anime',
+            'anime_img'
         ];
     }
 
-
-    public function getFilms_to_genres()
+    public function getAnime()
     {
-        return $this->hasMany(Films::class, ['id' => 'films_id'])
-            ->viaTable('films_to_genres', ['genres_id' => 'id']);
+        return $this->hasMany(Anime::class, ['id' => 'films_id'])
+            ->viaTable('anime_to_anime_gallery', ['films_gallery_id' => 'id']);
+    }
+
+    public function getAnime_img()
+    {
+        return $this->hasMany(AnimeImg::class, ['parent_id' => 'id']);
     }
 }
