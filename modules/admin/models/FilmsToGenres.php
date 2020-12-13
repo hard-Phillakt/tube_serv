@@ -13,6 +13,7 @@ use Yii;
  */
 class FilmsToGenres extends \yii\db\ActiveRecord
 {
+
     /**
      * {@inheritdoc}
      */

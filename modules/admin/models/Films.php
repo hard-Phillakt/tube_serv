@@ -29,6 +29,30 @@ use Yii;
  */
 class Films extends \yii\db\ActiveRecord
 {
+
+    public function behaviors()
+    {
+        return [
+            'slug' => [
+                'class' => 'skeeks\yii2\slug\SlugBehavior',
+                'slugAttribute' => 'slug',                      //The attribute to be generated
+                'attribute' => 'title',                          //The attribute from which will be generated
+                // optional params
+                'maxLength' => 64,                              //Maximum length of attribute slug
+                'minLength' => 3,                               //Min length of attribute slug
+                'ensureUnique' => true,
+                'slugifyOptions' => [
+                    'lowercase' => true,
+                    'separator' => '-',
+                    'trim' => true
+                    //'regexp' => '/([^A-Za-z0-9]|-)+/',
+                    //'rulesets' => ['russian'],
+                    //@see all options https://github.com/cocur/slugify
+                ]
+            ]
+        ];
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -43,7 +67,7 @@ class Films extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'original_title', 'slug', 'description', 'content', 'keywords', 'original_url_video', 'proxy_url_video', 'poster_img', 'year', 'publish_date', 'tagline', 'producer', 'world_premiere', 'release_date_in_russia', 'duration', 'parent_id'], 'required'],
+            [['title', 'original_title', 'description', 'content', 'keywords', 'original_url_video', 'proxy_url_video', 'poster_img', 'year', 'publish_date', 'tagline', 'producer', 'world_premiere', 'release_date_in_russia', 'duration', 'parent_id'], 'required'],
             [['content', 'original_url_video', 'proxy_url_video', 'poster_img', 'views'], 'string'],
             [['parent_id'], 'integer'],
             [['title', 'original_title', 'slug', 'description', 'keywords', 'tagline', 'producer', 'world_premiere', 'release_date_in_russia', 'duration'], 'string', 'max' => 255],

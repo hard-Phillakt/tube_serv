@@ -17,6 +17,29 @@ use Yii;
  */
 class FilmsGenres extends \yii\db\ActiveRecord
 {
+    public function behaviors()
+    {
+        return [
+            'slug' => [
+                'class' => 'skeeks\yii2\slug\SlugBehavior',
+                'slugAttribute' => 'slug',                      //The attribute to be generated
+                'attribute' => 'title',                          //The attribute from which will be generated
+                // optional params
+                'maxLength' => 64,                              //Maximum length of attribute slug
+                'minLength' => 3,                               //Min length of attribute slug
+                'ensureUnique' => true,
+                'slugifyOptions' => [
+                    'lowercase' => true,
+                    'separator' => '-',
+                    'trim' => true
+                    //'regexp' => '/([^A-Za-z0-9]|-)+/',
+                    //'rulesets' => ['russian'],
+                    //@see all options https://github.com/cocur/slugify
+                ]
+            ]
+        ];
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -31,7 +54,7 @@ class FilmsGenres extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'slug', 'description', 'alt', 'img', 'parent_id'], 'required'],
+            [['title', 'description', 'alt', 'img', 'parent_id'], 'required'],
             [['parent_id'], 'integer'],
             [['title', 'slug', 'description', 'alt', 'img'], 'string', 'max' => 255],
         ];

@@ -28,36 +28,6 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-
-<!--
-
-*** ФИЛЬМЫ ***
-^films T M // Фильмы
-^films_genres T M // Жанры фильмов
-^films_to_genres T M // Связь жанры к фильмам
-^films_gallery T M // Галереи к Фильмам
-^films_img T M // Картинки к фильмам
-^films_gallery_to_films_img T M // Связь галереи к картинкам
-^films_to_films_gallery T M // Связь Фильмов с галереями
-
-
-
-*** СЕРИАЛЫ ***
-serials // Сериалы
-serials_to_genre // Жанры к сериалам
-serials_to_serials_gallery // Сериалы к галереям
-serials_gallery_to_serials_img // Галереи сериалы  к картинкам
-
-
-*** АНИМЕ ***
-anime // Аниме
-anime_to_genre // Жанры к Аниме
-anime_to_anime_gallery // Аниме к галереям
-anime_gallery_to_anime_img // Галереи сериалы  к картинкам
-
--->
-
-
 <div class="wrap">
     <?php
     NavBar::begin([
