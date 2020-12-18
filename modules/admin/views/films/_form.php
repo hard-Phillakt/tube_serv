@@ -82,12 +82,6 @@ use kartik\date\DatePicker;
 
                         <div class="row">
                             <div class="col-lg-6">
-                                <?= $form->field($model, 'description')->widget(CKEditor::class, [
-                                    'editorOptions' => [
-                                        'preset' => 'full', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
-                                        'inline' => false, //по умолчанию false
-                                    ],
-                                ]); ?>
 
                                 <?= $form->field($model, 'content')->widget(CKEditor::class, [
                                     'editorOptions' => [
@@ -95,21 +89,16 @@ use kartik\date\DatePicker;
                                         'inline' => false, //по умолчанию false
                                     ],
                                 ]); ?>
+
                             </div>
                             <div class="col-lg-6">
-                                <?= $form->field($model, 'keywords')->widget(CKEditor::class, [
-                                    'editorOptions' => [
-                                        'preset' => 'full', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
-                                        'inline' => false, //по умолчанию false
-                                    ],
-                                ]); ?>
 
-                                <?= $form->field($model, 'tagline')->widget(CKEditor::class, [
-                                    'editorOptions' => [
-                                        'preset' => 'full', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
-                                        'inline' => false, //по умолчанию false
-                                    ],
-                                ]); ?>
+                                <?= $form->field($model, 'description')->textarea(['style' => 'height: 100px;']); ?>
+
+                                <?= $form->field($model, 'keywords')->textarea(['style' => 'height: 100px;']); ?>
+
+                                <?= $form->field($model, 'tagline')->textarea(['style' => 'height: 100px;']); ?>
+
                             </div>
                         </div>
                     </div>
