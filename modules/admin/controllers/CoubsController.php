@@ -3,20 +3,20 @@
 namespace app\modules\admin\controllers;
 
 use Yii;
-use app\modules\admin\models\SerialsItems;
-use app\modules\admin\models\SerialsItemsSearch;
+use app\modules\admin\models\Coubs;
+use app\modules\admin\models\CoubsSearch;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * SerialsItemsController implements the CRUD actions for SerialsItems model.
+ * CoubsController implements the CRUD actions for Coubs model.
  */
-class SerialsItemsController extends Controller
+class CoubsController extends Controller
 {
 
-    public $layout = "_main";
+    public $layout = '_main';
 
     /**
      * {@inheritdoc}
@@ -44,12 +44,12 @@ class SerialsItemsController extends Controller
     }
 
     /**
-     * Lists all SerialsItems models.
+     * Lists all Coubs models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new SerialsItemsSearch();
+        $searchModel = new CoubsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -59,7 +59,7 @@ class SerialsItemsController extends Controller
     }
 
     /**
-     * Displays a single SerialsItems model.
+     * Displays a single Coubs model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -72,13 +72,13 @@ class SerialsItemsController extends Controller
     }
 
     /**
-     * Creates a new SerialsItems model.
+     * Creates a new Coubs model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new SerialsItems();
+        $model = new Coubs();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -90,7 +90,7 @@ class SerialsItemsController extends Controller
     }
 
     /**
-     * Updates an existing SerialsItems model.
+     * Updates an existing Coubs model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -110,7 +110,7 @@ class SerialsItemsController extends Controller
     }
 
     /**
-     * Deletes an existing SerialsItems model.
+     * Deletes an existing Coubs model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -124,15 +124,15 @@ class SerialsItemsController extends Controller
     }
 
     /**
-     * Finds the SerialsItems model based on its primary key value.
+     * Finds the Coubs model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return SerialsItems the loaded model
+     * @return Coubs the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = SerialsItems::findOne($id)) !== null) {
+        if (($model = Coubs::findOne($id)) !== null) {
             return $model;
         }
 

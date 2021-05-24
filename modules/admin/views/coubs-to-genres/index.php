@@ -1,27 +1,26 @@
 <?php
 
+use app\modules\admin\models\Coubs;
+use app\modules\admin\models\CoubsGenres;
 use yii\helpers\Html;
 use yii\grid\GridView;
 
-use app\modules\admin\models\Films;
-use app\modules\admin\models\FilmsGenres;
-
 /* @var $this yii\web\View */
-/* @var $searchModel app\modules\admin\models\FilmsToGenresSearch */
+/* @var $searchModel app\modules\admin\models\CoubsToGenresSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Films To Genres';
+$this->title = 'Coubs To Genres';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="films-to-genres-index">
+<div class="coubs-to-genres-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Films To Genres', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Coubs To Genres', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?=  $this->render('_search', ['model' => $searchModel]); ?>
+    <?= $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -33,8 +32,8 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'films_id',
                 'value' => function ($data) {
-                    $filmsId = $data['films_id'];
-                    $films = Films::findOne($filmsId);
+                    $filmsId = $data['coubs_id'];
+                    $films = Coubs::findOne($filmsId);
                     return $films['title'];
                 },
             ],
@@ -42,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'genres_id',
                 'value' => function ($data) {
                     $genresId = $data['genres_id'];
-                    $genres = FilmsGenres::findOne($genresId);
+                    $genres = CoubsGenres::findOne($genresId);
                     return $genres['title'];
                 },
             ],

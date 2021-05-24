@@ -71,6 +71,16 @@ $config = [
             'rules' => [
                 [
                     'class' => 'yii\rest\UrlRule',
+                    'controller' => 'api/v1/coubs',
+//                    'except' => ['delete', 'create', 'update'],
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => 'api/v1/coubs-genres',
+//                    'except' => ['delete', 'create', 'update'],
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule',
                     'controller' => 'api/v1/films',
 //                    'except' => ['delete', 'create', 'update'],
                 ],

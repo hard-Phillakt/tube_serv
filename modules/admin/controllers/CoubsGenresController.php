@@ -3,20 +3,22 @@
 namespace app\modules\admin\controllers;
 
 use Yii;
-use app\modules\admin\models\SerialsItems;
-use app\modules\admin\models\SerialsItemsSearch;
+use app\modules\admin\models\CoubsGenres;
+use app\modules\admin\models\CoubsGenresSearch;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * SerialsItemsController implements the CRUD actions for SerialsItems model.
+ * CoubsGenresController implements the CRUD actions for CoubsGenres model.
  */
-class SerialsItemsController extends Controller
+class CoubsGenresController extends Controller
 {
-
-    public $layout = "_main";
+    /**
+     * {@inheritdoc}
+     */
+    public $layout = '_main';
 
     /**
      * {@inheritdoc}
@@ -44,12 +46,12 @@ class SerialsItemsController extends Controller
     }
 
     /**
-     * Lists all SerialsItems models.
+     * Lists all CoubsGenres models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new SerialsItemsSearch();
+        $searchModel = new CoubsGenresSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -59,7 +61,7 @@ class SerialsItemsController extends Controller
     }
 
     /**
-     * Displays a single SerialsItems model.
+     * Displays a single CoubsGenres model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -72,13 +74,13 @@ class SerialsItemsController extends Controller
     }
 
     /**
-     * Creates a new SerialsItems model.
+     * Creates a new CoubsGenres model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new SerialsItems();
+        $model = new CoubsGenres();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -90,7 +92,7 @@ class SerialsItemsController extends Controller
     }
 
     /**
-     * Updates an existing SerialsItems model.
+     * Updates an existing CoubsGenres model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -110,7 +112,7 @@ class SerialsItemsController extends Controller
     }
 
     /**
-     * Deletes an existing SerialsItems model.
+     * Deletes an existing CoubsGenres model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -124,15 +126,15 @@ class SerialsItemsController extends Controller
     }
 
     /**
-     * Finds the SerialsItems model based on its primary key value.
+     * Finds the CoubsGenres model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return SerialsItems the loaded model
+     * @return CoubsGenres the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = SerialsItems::findOne($id)) !== null) {
+        if (($model = CoubsGenres::findOne($id)) !== null) {
             return $model;
         }
 

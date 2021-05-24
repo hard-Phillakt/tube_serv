@@ -41,6 +41,19 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             [
+                'label' => 'Раздел: Коуб',
+                'items' => [
+                    '<li class="dropdown-header">Список коуб</li>',
+                    ['label' => 'Коуб', 'url' => '/admin/coubs/'],
+                    '<li class="divider"></li>',
+                    '<li class="dropdown-header">Жанры</li>',
+                    ['label' => 'Жанры', 'url' => '/admin/coubs-genres/'],
+                    '<li class="divider"></li>',
+                    '<li class="dropdown-header">Связь жанры с коуб</li>',
+                    ['label' => 'Связь жанры с коуб', 'url' => '/admin/coubs-to-genres/'],
+                ],
+            ],
+            [
                 'label' => 'Раздел: Фильмы',
                 'items' => [
                     '<li class="dropdown-header">Список фильмов</li>',
